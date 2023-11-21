@@ -1,7 +1,7 @@
 ---
-title: "TEs_CoTEs_pipeline"
+title: "CoTEs visualization"
 author: "Yahan Zhang"
-date: "2023-11-13"
+date: "2023-11-21"
 output: html_document
 ---
 
@@ -9,22 +9,37 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Import the necessary libraries
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r message=FALSE}
+library(ChIPseeker)
+library(TxDb.Hsapiens.UCSC.hg38.knownGene)
+library(org.Hs.eg.db)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+## Read in the files
+```{r message=FALSE}
+txdb<-TxDb.Hsapiens.UCSC.hg38.knownGene
+peak_core <- readPeakFile('D:/TEs_CoTEs_pipline/data/V2-TEs/non_olap/cores1000/542_L1MA1_Merged.bed')
+peak_TE <- readPeakFile('D:/TEs_CoTEs_pipline/data/V2-TEs/non_olap/TEs/542_L1MA1_Merged.bed')
+#plotAnnoPie(peakAnno)
+#peakAnno = as.data.frame(peakAnno)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Anotate the genomic regions
+```{r message=FALSE}
+peakAnno_TE<-annotatePeak(peak_TE,tssRegion=c(-3000,3000),TxDb=txdb,annoDb="org.Hs.eg.db")
+peakAnno_core<-annotatePeak(peak_core,tssRegion=c(-3000,3000),TxDb=txdb,annoDb="org.Hs.eg.db")
+```
+
+## Plot the proportions of genomic regions
+```{r}
+plotAnnoPie(peakAnno_TE)
+plotAnnoPie(peakAnno_core)
+```
+
+```{r}
+peakAnno = as.data.frame(peakAnno_core)
+peakAnno
+```
+
