@@ -27,25 +27,25 @@ peak_TE <- readPeakFile('D:/TEs_CoTEs_pipline/data/V2-TEs/non_olap/TEs/542_L1MA1
 peakAnno_TE<-annotatePeak(peak_TE,tssRegion=c(-3000,3000),TxDb=txdb,annoDb="org.Hs.eg.db")
 ```
 
-    ## >> preparing features information...      2023-11-21 12:02:09 PM 
-    ## >> identifying nearest features...        2023-11-21 12:02:11 PM 
-    ## >> calculating distance from peak to TSS...   2023-11-21 12:02:12 PM 
-    ## >> assigning genomic annotation...        2023-11-21 12:02:12 PM 
-    ## >> adding gene annotation...          2023-11-21 12:02:53 PM 
-    ## >> assigning chromosome lengths           2023-11-21 12:02:53 PM 
-    ## >> done...                    2023-11-21 12:02:53 PM
+    ## >> preparing features information...      2023-11-23 2:49:39 PM 
+    ## >> identifying nearest features...        2023-11-23 2:49:41 PM 
+    ## >> calculating distance from peak to TSS...   2023-11-23 2:49:44 PM 
+    ## >> assigning genomic annotation...        2023-11-23 2:49:44 PM 
+    ## >> adding gene annotation...          2023-11-23 2:50:34 PM 
+    ## >> assigning chromosome lengths           2023-11-23 2:50:35 PM 
+    ## >> done...                    2023-11-23 2:50:35 PM
 
 ``` r
 peakAnno_core<-annotatePeak(peak_core,tssRegion=c(-3000,3000),TxDb=txdb,annoDb="org.Hs.eg.db")
 ```
 
-    ## >> preparing features information...      2023-11-21 12:02:53 PM 
-    ## >> identifying nearest features...        2023-11-21 12:02:53 PM 
-    ## >> calculating distance from peak to TSS...   2023-11-21 12:02:54 PM 
-    ## >> assigning genomic annotation...        2023-11-21 12:02:54 PM 
-    ## >> adding gene annotation...          2023-11-21 12:03:00 PM 
-    ## >> assigning chromosome lengths           2023-11-21 12:03:01 PM 
-    ## >> done...                    2023-11-21 12:03:01 PM
+    ## >> preparing features information...      2023-11-23 2:50:35 PM 
+    ## >> identifying nearest features...        2023-11-23 2:50:35 PM 
+    ## >> calculating distance from peak to TSS...   2023-11-23 2:50:35 PM 
+    ## >> assigning genomic annotation...        2023-11-23 2:50:35 PM 
+    ## >> adding gene annotation...          2023-11-23 2:50:41 PM 
+    ## >> assigning chromosome lengths           2023-11-23 2:50:41 PM 
+    ## >> done...                    2023-11-23 2:50:41 PM
 
 ## Plot the proportions of genomic regions
 
@@ -321,3 +321,12 @@ peakAnno
     ## 48         major histocompatibility complex, class I, L (pseudogene)
     ## 49         major histocompatibility complex, class I, L (pseudogene)
     ## 50 HECT, UBA and WWE domain containing E3 ubiquitin protein ligase 1
+
+\##Since the significant chromosome is chrX, curious about the functions
+of genes evolved
+
+``` r
+library(gprofiler2)
+```
+
+    ## Warning: package 'gprofiler2' was built under R version 4.3.2

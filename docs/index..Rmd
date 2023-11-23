@@ -44,3 +44,12 @@ peakAnno = as.data.frame(peakAnno_core)
 peakAnno
 ```
 
+## Since the significant chromosome is chrX, curious about the functions of genes evolved
+```{r warning=FALSE}
+library(gprofiler2)
+filtered_df<-subset(peakAnno,peakAnno$seqnames=="chrX")
+genes_list<-filtered_df$SYMBOL
+gostres<-gost(query=c(genes_list),organism="hsapiens",significant=TRUE,user_threshold = 0.05)
+gostplot(gostres, capped = TRUE, interactive = TRUE)
+```
+
