@@ -25,13 +25,47 @@
             <li>Finished scripts for one case, need to finish the generalized script that make a table</li>
         </ul>
 
-        <h2 style="background-color:beige;">November 20,2023</h2>
+        <h2 style="background-color:beige;">November 23,2023</h2>
         <h3>Questions to discuss with Mostafa:</h3>
         <ul>
             <li> the data source</li>
             <li> research interest</li>
         </ul>
+        <h2 style="background-color:beige;">November 24,2023</h2>
+        <h3> TO DO:</h3>
+        <ul>
+            <li>Generate annotation tables for the CoTEs of each TE (done) </li>
+        </ul>
 
+        <h2 style="background-color:beige;">November 27,2023</h2>
+        <h3>Meeting with Mostafa:</h3>
+        <ul>
+            <li>The statistical tests are too strict</li>
+            <li>Check how does the ChIPseeker annotate the peaks, count promoters first?:<ul>
+                <li>it assigns the genomic annotations in this order: Promoter; 5' UTR; 3' UTR; Exon; Intron; Downstream; and distal intergenic regions</li>
+                <li>The order can be customized</li>
+                <li>Certain regions can be ignored</li>
+            </ul></li>
+            <li>Ask Ankita the TCGA ATAC-seq data, how to process them to make it consistent with the ENCODE ones (can visualize it using IGV, hg19),focus on file ending with filtered.bdg</li>
+        </ul>
 
+        <h2 style="background-color:beige;">November 28,2023</h2>
+        <h3>Automatic Outlier Detection:</h3>
+        <ul>
+            <li>Isolation Forest: <ul>
+                <li>isolates observations by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature</li>
+                <li>Random partitioning produces noticeably shorter paths for anomalies</li>
+            </ul></li>
+            <li>Local Outlier Detection:<ul>
+                <li>identify density-based local outliers</li>
+                <li>compare the density of each point to the density of its k-closest neighbors</li>
+                <li>the minimum k-values serves as a minimum size for something to be considered a "cluster", so that points can be outliers relative to the cluster</li>
+            </ul>
+            <li>One-class SVM</li>
+            <ul>
+                <li>captures the density of the majority class and classifies examples on the extremes of the density function as outliers</li>
+            </ul>
+            </li>
+        </ul>
     </body>
 </html>

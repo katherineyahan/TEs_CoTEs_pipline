@@ -12,3 +12,6 @@ peakAnno = as.data.frame(peakAnno)
 filtered_df<-subset(peakAnno,peakAnno$seqnames=="chrX")
 genes_list<-filtered_df$SYMBOL
 gostres<-gost(query=c(genes_list),organism="hsapiens",significant=TRUE,user_threshold = 0.05)
+
+negative_data <- read.csv("C:/Users/yahan/Downloads/negative_table.txt",header=TRUE,sep="\t")
+positive_data <- read.csv("C:/Users/yahan/Downloads/positive_table.txt",header=TRUE,sep="\t")
